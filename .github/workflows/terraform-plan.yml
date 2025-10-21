@@ -51,7 +51,7 @@ jobs:
 
       - name: Terraform Plan
         id: plan
-        if: ${{ steps.validate == 'success' }}
+        if: ${{ steps.validate.conclusion == 'success' }}
         run: |
           terraform -chdir=${{ inputs.working-directory }} plan -input=false -out="${{ env.TF_PLAN_FILE }}"
           terraform -chdir=${{ inputs.working-directory }} show -no-color "${{ env.TF_PLAN_FILE }}" | head -n 80
