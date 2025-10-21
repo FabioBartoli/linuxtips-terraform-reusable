@@ -15,6 +15,7 @@ on:
 
 jobs: 
   terraform-destroy-plan:
+    id: destroy_plan
     name: Terraform Destroy Plan
     runs-on: ubuntu-latest
 
