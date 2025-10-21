@@ -15,7 +15,6 @@ on:
 
 jobs: 
   terraform-destroy-plan:
-    id: destroy_plan
     name: Terraform Destroy Plan
     runs-on: ubuntu-latest
 
@@ -62,8 +61,8 @@ jobs:
 
   destroy_apply:
     name: Terraform Destroy Apply
-    needs: destroy_plan
-    if: ${{ needs.destroy_plan.result == 'success' }}
+    needs: terraform-destroy-plan
+    if: ${{ needs.terraform-destroy-plan.result == 'success' }}
     uses: FabioBartoli/linuxtips-terraform-reusable/.github/workflows/terraform-destroy-apply.yml@main
     with:
       working-directory: ${{ inputs.working-directory }}
