@@ -18,6 +18,9 @@ jobs:
     name: Terraform Apply
     runs-on: ubuntu-latest
 
+    environment: 
+      name: tfapprove
+
     permissions:
       id-token: write
       contents: read
